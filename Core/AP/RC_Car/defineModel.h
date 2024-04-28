@@ -15,6 +15,7 @@
 #include "../Driver/CLCD/CLCD.h"
 #include "../Driver/Ultrasonic/Ultrasonic.h"
 #include "../Driver/Motor/Motor.h"
+#include <stdio.h>
 
 
 #define Ultrasonic1_Trig_Port			GPIOC

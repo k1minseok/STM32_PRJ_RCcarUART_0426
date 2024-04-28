@@ -7,7 +7,6 @@
 
 #include "Presenter.h"
 
-extern UART_HandleTypeDef huart2;
 extern Motor_t hLeftMotor, hRightMotor;
 
 /*
@@ -17,13 +16,6 @@ extern Motor_t hLeftMotor, hRightMotor;
  * 2. Motor : Forward, Back, ...
  *
  */
-
-int _write(int file, char *ptr, int len)		// for printf() function
-{
-	HAL_UART_Transmit(&huart2, (uint8_t*) ptr, len, 1000);
-
-	return len;
-}
 
 void Presenter_Motor_Run(uint8_t state)
 {
@@ -62,22 +54,27 @@ void Presenter_UART_Run(uint8_t state)
 	{
 		case OFF:
 			printf("Mode : OFF\n");
+			printf("--------------------------\n");
 			break;
 
 		case FORWARD:
 			printf("Mode : Forward\n");
+			printf("--------------------------\n");
 			break;
 
 		case BACKWARD:
 			printf("Mode : Backward\n");
+			printf("--------------------------\n");
 			break;
 
 		case RIGHT_FORWARD:
 			printf("Mode : RightForward\n");
+			printf("--------------------------\n");
 			break;
 
 		case LEFT_FORWARD:
 			printf("Mode : LeftForward\n");
+			printf("--------------------------\n");
 			break;
 	}
 }
