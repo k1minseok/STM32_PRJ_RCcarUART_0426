@@ -1,0 +1,3 @@
+../Core/AP/RC_Car/defineModel.c:25:6:Model_hardwareinit	40	static
+../Core/AP/RC_Car/defineModel.c:35:9:Model_getCarModeState	4	static
+../Core/AP/RC_Car/defineModel.c:39:6:Model_setCarModeState	16	static
