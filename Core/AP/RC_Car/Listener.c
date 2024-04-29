@@ -8,10 +8,10 @@
 
 #include "Listener.h"
 
-UART_HandleTypeDef *myHuart;
-
+//UART_HandleTypeDef *myHuart;
 //extern uint8_t rcvData;
-Que_t uart2RxQue;
+//Que_t uart2RxQue;
+
 uint8_t CarModeBuf[20];
 uint8_t index_carmodebuf;
 uint8_t CarModeState_Li;

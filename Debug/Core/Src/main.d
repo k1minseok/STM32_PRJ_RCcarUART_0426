@@ -38,6 +38,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Core/Src/../AP/RC_Car/Presenter.h ../Core/Src/../AP/RC_Car/Listener.h \
  ../Core/Src/../AP/RC_Car/Queue_Car.h ../Core/Inc/../Common/Queue/Queue.h \
  ../Core/Src/../AP/RC_Car/Presenter.h \
+ ../Core/Src/../AP/RC_Car/defineModel.h \
  ../Core/Src/../AP/../Common/delayUS/delayUS.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
@@ -83,4 +84,5 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Core/Src/../AP/RC_Car/Queue_Car.h:
 ../Core/Inc/../Common/Queue/Queue.h:
 ../Core/Src/../AP/RC_Car/Presenter.h:
+../Core/Src/../AP/RC_Car/defineModel.h:
 ../Core/Src/../AP/../Common/delayUS/delayUS.h:

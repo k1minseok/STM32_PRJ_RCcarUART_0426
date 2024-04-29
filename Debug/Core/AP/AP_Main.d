@@ -36,7 +36,8 @@ Core/AP/AP_Main.o: ../Core/AP/AP_Main.c ../Core/AP/AP_Main.h \
  ../Core/Inc/../Driver/Ultrasonic/Ultrasonic.h \
  ../Core/AP/RC_Car/Presenter.h ../Core/AP/RC_Car/Listener.h \
  ../Core/AP/RC_Car/Queue_Car.h ../Core/Inc/../Common/Queue/Queue.h \
- ../Core/AP/RC_Car/Presenter.h ../Core/AP/../Common/delayUS/delayUS.h
+ ../Core/AP/RC_Car/Presenter.h ../Core/AP/RC_Car/defineModel.h \
+ ../Core/AP/../Common/delayUS/delayUS.h
 ../Core/AP/AP_Main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
@@ -80,4 +81,5 @@ Core/AP/AP_Main.o: ../Core/AP/AP_Main.c ../Core/AP/AP_Main.h \
 ../Core/AP/RC_Car/Queue_Car.h:
 ../Core/Inc/../Common/Queue/Queue.h:
 ../Core/AP/RC_Car/Presenter.h:
+../Core/AP/RC_Car/defineModel.h:
 ../Core/AP/../Common/delayUS/delayUS.h:

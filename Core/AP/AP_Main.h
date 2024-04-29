@@ -12,6 +12,7 @@
 #include "RC_Car/Controller.h"
 #include "RC_Car/Listener.h"
 #include "RC_Car/Presenter.h"
+#include "RC_Car/defineModel.h"
 #include "../Common/delayUS/delayUS.h"
 
 

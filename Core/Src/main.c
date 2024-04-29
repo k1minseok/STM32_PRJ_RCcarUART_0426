@@ -114,7 +114,7 @@ int main(void)
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
 
-  AP_Main_init();
+  AP_Main_init(&huart2, &htim3, &htim1, &htim2, &htim3);
 
   /* USER CODE END 2 */
 

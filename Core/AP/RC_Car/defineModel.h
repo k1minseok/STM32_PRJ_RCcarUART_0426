@@ -56,16 +56,33 @@ typedef enum{
 	LEFT_FORWARD
 }CarModeState_t;
 
-//typedef struct{
-//	TIM_HandleTypeDef *motor_htim;
-//	TIM_HandleTypeDef *UltraRight_htim;
-//	TIM_HandleTypeDef *UltraCenter_htim;
-//	TIM_HandleTypeDef *UltraLeft_htim;
-//}htim_t;
+typedef struct{
+	UART_HandleTypeDef *myHuart;
+	TIM_HandleTypeDef *motor_htim;
+	TIM_HandleTypeDef *UltraRight_htim;
+	TIM_HandleTypeDef *UltraCenter_htim;
+	TIM_HandleTypeDef *UltraLeft_htim;
+}handler_t;
+
+typedef struct{
+	Motor_t hLeftMotor;
+	Motor_t hRightMotor;
+}com_hMotor_t;
+
+typedef struct{
+	Ultrasonic_t LeftUltra;
+	Ultrasonic_t CenterUltra;
+	Ultrasonic_t RightUltra;
+}com_hUltra_t;
 
 
-void Model_hardwareinit(TIM_HandleTypeDef *motor_htim, TIM_HandleTypeDef *UltraLeft_htim,
-		TIM_HandleTypeDef *UltraCenter_htim, TIM_HandleTypeDef *UltraRight_htim);
+void Model_hardwareinit(UART_HandleTypeDef *inHuart,
+		TIM_HandleTypeDef *motor_inHtim,
+		TIM_HandleTypeDef *UltraLeft_inHtim, TIM_HandleTypeDef *UltraCenter_inHtim, TIM_HandleTypeDef *UltraRight_inHtim);
+
+handler_t *Model_getHandler();
+com_hMotor_t *Model_getHandleMotor();
+
 uint8_t Model_getCarModeState();
 void Model_setCarModeState(uint8_t data);
 

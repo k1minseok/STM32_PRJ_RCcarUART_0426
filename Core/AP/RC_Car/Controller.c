@@ -8,8 +8,9 @@
 
 #include "Controller.h"
 
-extern Motor_t hLeftMotor, hRightMotor;
+//Motor_t litener_hLeftMotor, litener_hRightMotor;
 //uint8_t curCarModeState;
+
 uint8_t prevCarModeState;
 uint16_t MotorSpeed, turnDiffSpeed;
 
@@ -63,24 +64,24 @@ void Controller_Car_execute()
 
 void Controller_CarOFF_Run()
 {
-	Motor_SetSpeed(&hLeftMotor, 0);
-	Motor_SetSpeed(&hRightMotor, 0);
+	Motor_SetSpeed(&(Model_getHandleMotor()->hLeftMotor), 0);
+	Motor_SetSpeed(&(Model_getHandleMotor()->hRightMotor), 0);
 	Presenter_Motor_Run(OFF);
 	Presenter_UART_Run(OFF);
 }
 void Controller_CarForward_Run(int speedVal)
 {
 	if(speedVal > 1000) speedVal = 1000;
-	Motor_SetSpeed(&hLeftMotor, speedVal);
-	Motor_SetSpeed(&hRightMotor, speedVal);
+	Motor_SetSpeed(&(Model_getHandleMotor()->hLeftMotor), speedVal);
+	Motor_SetSpeed(&(Model_getHandleMotor()->hRightMotor), speedVal);
 	Presenter_Motor_Run(FORWARD);
 	Presenter_UART_Run(FORWARD);
 }
 void Controller_CarBackward_Run(int speedVal)
 {
 	if(speedVal > 1000) speedVal = 1000;
-	Motor_SetSpeed(&hLeftMotor, speedVal);
-	Motor_SetSpeed(&hRightMotor, speedVal);
+	Motor_SetSpeed(&(Model_getHandleMotor()->hLeftMotor), speedVal);
+	Motor_SetSpeed(&(Model_getHandleMotor()->hRightMotor), speedVal);
 	Presenter_Motor_Run(BACKWARD);
 	Presenter_UART_Run(BACKWARD);
 }
@@ -88,8 +89,8 @@ void Controller_CarRightForward_Run(int speedVal, int speedDif)
 {
 	if(speedVal > 1000) speedVal = 1000;
 	//if((speedVal+speedDif) > 1000) speedVal = 1000-speedDif;
-	Motor_SetSpeed(&hLeftMotor, speedVal);
-	Motor_SetSpeed(&hRightMotor, speedVal-speedDif);
+	Motor_SetSpeed(&(Model_getHandleMotor()->hLeftMotor), speedVal);
+	Motor_SetSpeed(&(Model_getHandleMotor()->hRightMotor), speedVal-speedDif);
 	Presenter_Motor_Run(RIGHT_FORWARD);
 	Presenter_UART_Run(RIGHT_FORWARD);
 }
@@ -97,8 +98,8 @@ void Controller_CarLeftForward_Run(int speedVal, int speedDif)
 {
 	if(speedVal > 1000) speedVal = 1000;
 	//if(speedVal<speedDif) speedVal = 1000-speedDif;
-	Motor_SetSpeed(&hLeftMotor, speedVal-speedDif);
-	Motor_SetSpeed(&hRightMotor, speedVal);
+	Motor_SetSpeed(&(Model_getHandleMotor()->hLeftMotor), speedVal-speedDif);
+	Motor_SetSpeed(&(Model_getHandleMotor()->hRightMotor), speedVal);
 	Presenter_Motor_Run(LEFT_FORWARD);
 	Presenter_UART_Run(LEFT_FORWARD);
 }

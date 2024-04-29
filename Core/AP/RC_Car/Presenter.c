@@ -7,7 +7,7 @@
 
 #include "Presenter.h"
 
-extern Motor_t hLeftMotor, hRightMotor;
+//extern Motor_t hLeftMotor, hRightMotor;
 
 /*
  * Presenter
@@ -22,28 +22,28 @@ void Presenter_Motor_Run(uint8_t state)
 	switch (state)
 	{
 		case OFF:
-			Motor_Stop(&hLeftMotor);
-			Motor_Stop(&hRightMotor);
+			Motor_Stop(&(Model_getHandleMotor()->hLeftMotor));
+			Motor_Stop(&(Model_getHandleMotor()->hRightMotor));
 			break;
 
 		case FORWARD:
-			Motor_Forward(&hLeftMotor);
-			Motor_Forward(&hRightMotor);
+			Motor_Forward(&(Model_getHandleMotor()->hLeftMotor));
+			Motor_Forward(&(Model_getHandleMotor()->hRightMotor));
 			break;
 
 		case BACKWARD:
-			Motor_Backward(&hLeftMotor);
-			Motor_Backward(&hRightMotor);
+			Motor_Backward(&(Model_getHandleMotor()->hLeftMotor));
+			Motor_Backward(&(Model_getHandleMotor()->hRightMotor));
 			break;
 
 		case RIGHT_FORWARD:
-			Motor_Forward(&hLeftMotor);
-			Motor_Forward(&hRightMotor);
+			Motor_Forward(&(Model_getHandleMotor()->hLeftMotor));
+			Motor_Forward(&(Model_getHandleMotor()->hRightMotor));
 			break;
 
 		case LEFT_FORWARD:
-			Motor_Forward(&hLeftMotor);
-			Motor_Forward(&hRightMotor);
+			Motor_Forward(&(Model_getHandleMotor()->hLeftMotor));
+			Motor_Forward(&(Model_getHandleMotor()->hRightMotor));
 			break;
 	}
 }

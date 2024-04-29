@@ -8,31 +8,37 @@
 #include "AP_Main.h"
 #include "stdio.h"
 
-extern TIM_HandleTypeDef htim1, htim2, htim3;
-extern UART_HandleTypeDef huart2;
+//extern TIM_HandleTypeDef htim1, htim2, htim3;
+//extern UART_HandleTypeDef huart2;
+
 uint8_t rcvData;
+
+
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
 	if (huart->Instance == USART2)
 	{
 		Listener_ISR_Process(rcvData);
-		HAL_UART_Transmit(&huart2, &rcvData, 1, 100);
-		HAL_UART_Receive_IT(&huart2, &rcvData, 1);
+		HAL_UART_Transmit(Model_getHandler()->myHuart, &rcvData, 1, 100);
+		HAL_UART_Receive_IT(Model_getHandler()->myHuart, &rcvData, 1);
 		//HAL_UART_Transmit(&huart2, &rcvData, 1, 100);
+
 	}
 }
 
 
-void AP_Main_init()
+void AP_Main_init(UART_HandleTypeDef *inHuart,
+		TIM_HandleTypeDef *motor_inHtim,
+		TIM_HandleTypeDef *UltraLeft_inHtim, TIM_HandleTypeDef *UltraCenter_inHtim, TIM_HandleTypeDef *UltraRight_inHtim)
 {
-	HAL_UART_Receive_IT(&huart2, &rcvData, 1);
-	//sys_init();
 	DelayInit();
 	Que_Car_init();
 	Listener_init();
-	Model_hardwareinit(&htim3, &htim1, &htim2, &htim3);
+	Model_hardwareinit(inHuart, motor_inHtim, UltraLeft_inHtim, UltraCenter_inHtim, UltraRight_inHtim);
 	Controller_Car_init();
+
+	HAL_UART_Receive_IT(inHuart, &rcvData, 1);
 }
 void AP_Main_execute()
 {
